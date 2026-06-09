@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(247, 241, 228, 0.86), rgba(255, 253, 248, 1) 34rem),
+    #fffdf8;
+  color: #1f2933;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(61, 127, 168, 0.45);
+  outline-offset: 2px;
+}
+
+.print-area {
+  color: #1f2933;
+}
+
+@layer components {
+  .button-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-base font-semibold text-paper shadow-soft transition hover:bg-ink/90;
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-ink/20 bg-white px-4 py-3 text-base font-semibold text-ink transition hover:bg-chalk;
+  }
+
+  .icon-button {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-md border border-ink/20 bg-white transition hover:bg-chalk;
+  }
+
+  .input-field {
+    @apply min-h-12 w-full rounded-md border border-ink/20 bg-white px-3 py-3 text-ink shadow-sm transition placeholder:text-ink/40 focus:border-sky;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-area {
+    display: block;
+    box-shadow: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+}
